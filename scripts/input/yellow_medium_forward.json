@@ -1,0 +1,31 @@
+{
+    "agent_name": "yellow", 
+    "agent_type": "Turtlebot", 
+    "anonymous_node": false, 
+    "comm_type": "publish", 
+    "init_type": "_simple_init", 
+    "node_name": "MoveMediumForward", 
+    "node_space": "yellow", 
+    "node_type": "hold_timed_publish", 
+    "publish": {
+        "_constant_velocities": {
+            "angular": [
+                0.0, 
+                0.0, 
+                0.0
+            ], 
+            "linear": [
+                0.15, 
+                0.0, 
+                0.0
+            ]
+        }, 
+        "comm_data": "_constant_velocities", 
+        "data_class_name": "Twist", 
+        "data_topic_name": "cmd_vel_mux/input/navi", 
+        "namespace": "yellow", 
+        "queue_size": 10, 
+        "rate": 10
+    }, 
+    "time_steps": 100
+}
