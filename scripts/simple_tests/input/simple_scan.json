@@ -1,0 +1,21 @@
+{
+	"init_type": "_simple_init",
+	"node_space": "violet",
+
+	"agent_name": "violet",
+	"agent_type": "Turtlebot",
+	"time_steps": 50,
+	"rate": 10,
+
+	"node_name": "Scan",
+	"anonymous_node": false,
+
+	"comm_type": "subscribe",
+	"subscribe": {
+		"namespace": "violet",
+		"comm_data": "_scan",
+		"data_topic_name": "scan",
+		"data_class_name": "LaserScan",
+		"callback": "_laser_callback"
+	}
+}

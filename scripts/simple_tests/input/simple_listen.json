@@ -1,0 +1,21 @@
+{
+	"init_type": "_simple_init",
+	"node_space": "blue",
+
+	"agent_name": "blue",
+	"agent_type": "Turtlebot",
+	"time_steps": 50,
+	"rate": 10,
+
+	"node_name": "Listen",
+	"anonymous_node": false,
+
+	"comm_type": "subscribe",
+	"subscribe": {
+		"namespace": "blue",
+		"comm_data": "_listen",
+		"data_topic_name": "chatter",
+		"data_class_name": "String",
+		"callback": "_listener_callback"
+	}
+}

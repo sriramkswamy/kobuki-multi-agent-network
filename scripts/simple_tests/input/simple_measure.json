@@ -1,0 +1,21 @@
+{
+	"init_type": "_simple_init",
+	"node_space": "green",
+
+	"agent_name": "green",
+	"agent_type": "Turtlebot",
+	"time_steps": 50,
+	"rate": 10,
+
+	"node_name": "Measure",
+	"anonymous_node": false,
+
+	"comm_type": "subscribe",
+	"subscribe": {
+		"namespace": "green",
+		"comm_data": "_measure",
+		"data_topic_name": "odom",
+		"data_class_name": "Odometry",
+		"callback": "_odometry_callback"
+	}
+}

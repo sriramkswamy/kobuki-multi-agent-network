@@ -1,0 +1,25 @@
+{
+	"init_type": "_simple_init",
+    "node_space": "green",
+
+    "agent_name": "green",
+    "agent_type": "Turtlebot",
+    "time_steps": 50,
+
+	"node_name": "Move",
+	"anonymous_node": false,
+
+	"comm_type": "publish",
+	"publish": {
+		"namespace": "green",
+		"comm_data": "_constant_velocities",
+		"data_topic_name": "cmd_vel_mux/input/navi",
+		"data_class_name": "Twist",
+		"rate": 10,
+		"queue_size": 10,
+		"_constant_velocities": {
+			"linear": [0.3, 0.0, 0.0],
+			"angular": [0.0, 0.0, 0.3]
+		}
+	}
+}

@@ -1,0 +1,60 @@
+{
+    "init_type": "_complex_init",
+    "node_space": "blue",
+
+    "agent_name": "blue",
+    "agent_type": "Turtlebot",
+    "time_steps": 50,
+
+    "node_name": "TalkListenMoveMeasure",
+    "anonymous_node": false,
+
+    "pub_type": "publish",
+    "sub_type": "subscribe",
+
+    "publish": {
+        "talk": {
+            "namespace": "blue",
+            "comm_data": "_talk",
+            "data_topic_name": "chatter",
+            "data_class_name": "String",
+            "rate": 10,
+            "queue_size": 10,
+            "_talk": {
+                "phrase": "Wassup?"
+            }
+        },
+
+        "move": {
+            "namespace": "blue",
+            "comm_data": "_constant_velocities",
+            "data_topic_name": "cmd_vel_mux/input/navi",
+            "data_class_name": "Twist",
+            "rate": 10,
+            "queue_size": 10,
+            "_constant_velocities": {
+                "linear": [0.3, 0.0, 0.0],
+                "angular": [0.0, 0.0, 0.3]
+            }
+        }
+    },
+
+    "subscribe": {
+        "listen": {
+            "namespace": "blue",
+            "comm_data": "_listen",
+            "data_topic_name": "chatter",
+            "data_class_name": "String",
+            "callback": "_listener_callback"
+        },
+
+        "measure": {
+            "namespace": "blue",
+            "comm_data": "_listen",
+            "data_topic_name": "odometry",
+            "data_class_name": "Odometry",
+            "callback": "_odometry_callback"
+        }
+    }
+
+}
