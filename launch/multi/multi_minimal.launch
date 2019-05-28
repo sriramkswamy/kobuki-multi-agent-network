@@ -1,0 +1,10 @@
+<launch>
+  <arg name="robot_name"
+       default="$(env TURTLEBOT_NAME)"
+       doc="used as a unique identifier and occasionally to preconfigure root namespaces, gateway/zeroconf ids etc."/>
+
+  <group ns="$(arg robot_name)">
+    <include file="$(find multi_agent)/launch/turtlebot_bringup/launch/minimal.launch">
+    </include>
+  </group>
+</launch>
