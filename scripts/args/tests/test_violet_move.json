@@ -1,0 +1,87 @@
+{
+	"violet_move": {
+		"init_type": "_simple_init",
+		"node_space": "violet",
+		"agent_name": "violet",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"node_name": "Move",
+		"node_type": "publish",
+		"anonymous_node": false,
+		"comm_type": "publish",
+		"publish": {
+			"namespace": "violet",
+			"comm_data": "_constant_velocities",
+			"data_topic_name": "cmd_vel_mux/input/navi",
+			"data_class_name": "Twist",
+			"rate": 10,
+			"queue_size": 10,
+			"_constant_velocities": {
+				"linear": [0.15, 0.15, 0.0],
+				"angular": [0.0, 0.0, 0.15]
+			}
+		}
+	},
+
+	"violet_measure": {
+		"init_type": "_simple_init",
+		"node_space": "violet",
+		"agent_name": "violet",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "Measure",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "violet",
+			"comm_data": "_measure",
+			"data_topic_name": "odom",
+			"data_class_name": "Odometry",
+			"callback": "_odometry_callback"
+		}
+	},
+
+	"violet_complete": {
+		"init_type": "_simple_init",
+		"node_space": "violet",
+		"agent_name": "violet",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanComplete",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "violet",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "complete",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"violet_closest": {
+		"init_type": "_simple_init",
+		"node_space": "violet",
+		"agent_name": "violet",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanClosest",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "violet",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "closest",
+			"callback": "_laser_callback"
+		}
+	}
+}

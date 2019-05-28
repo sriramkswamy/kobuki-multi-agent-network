@@ -1,0 +1,478 @@
+{
+
+	"yellow_stationary": {
+		"init_type": "_simple_init",
+		"node_space": "yellow",
+		"agent_name": "yellow",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"node_name": "MoveStationary",
+		"node_type": "timed_publish",
+		"anonymous_node": false,
+		"comm_type": "publish",
+		"publish": {
+			"namespace": "yellow",
+			"comm_data": "_constant_velocities",
+			"data_topic_name": "cmd_vel_mux/input/navi",
+			"data_class_name": "Twist",
+			"rate": 10,
+			"queue_size": 10,
+			"_constant_velocities": {
+				"linear": [0.0, 0.0, 0.0],
+				"angular": [0.0, 0.0, 0.0]
+			}
+		}
+	},
+
+	"yellow_measure": {
+		"init_type": "_simple_init",
+		"node_space": "yellow",
+		"agent_name": "yellow",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "Measure",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "yellow",
+			"comm_data": "_measure",
+			"data_topic_name": "odom",
+			"data_class_name": "Odometry",
+			"callback": "_odometry_callback"
+		}
+	},
+
+	"orange_stationary": {
+		"init_type": "_simple_init",
+		"node_space": "orange",
+		"agent_name": "orange",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"node_name": "MoveStationary",
+		"node_type": "timed_publish",
+		"anonymous_node": false,
+		"comm_type": "publish",
+		"publish": {
+			"namespace": "orange",
+			"comm_data": "_constant_velocities",
+			"data_topic_name": "cmd_vel_mux/input/navi",
+			"data_class_name": "Twist",
+			"rate": 10,
+			"queue_size": 10,
+			"_constant_velocities": {
+				"linear": [0.0, 0.0, 0.0],
+				"angular": [0.0, 0.0, 0.0]
+			}
+		}
+	},
+
+	"orange_measure": {
+		"init_type": "_simple_init",
+		"node_space": "orange",
+		"agent_name": "orange",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "Measure",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "orange",
+			"comm_data": "_measure",
+			"data_topic_name": "odom",
+			"data_class_name": "Odometry",
+			"callback": "_odometry_callback"
+		}
+	},
+
+	"red_stationary": {
+		"init_type": "_simple_init",
+		"node_space": "red",
+		"agent_name": "red",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"node_name": "MoveStationary",
+		"node_type": "timed_publish",
+		"anonymous_node": false,
+		"comm_type": "publish",
+		"publish": {
+			"namespace": "red",
+			"comm_data": "_constant_velocities",
+			"data_topic_name": "cmd_vel_mux/input/navi",
+			"data_class_name": "Twist",
+			"rate": 10,
+			"queue_size": 10,
+			"_constant_velocities": {
+				"linear": [0.0, 0.0, 0.0],
+				"angular": [0.0, 0.0, 0.0]
+			}
+		}
+	},
+
+	"red_measure": {
+		"init_type": "_simple_init",
+		"node_space": "red",
+		"agent_name": "red",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "Measure",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "red",
+			"comm_data": "_measure",
+			"data_topic_name": "odom",
+			"data_class_name": "Odometry",
+			"callback": "_odometry_callback"
+		}
+	},
+
+	"blue_stationary": {
+		"init_type": "_simple_init",
+		"node_space": "blue",
+		"agent_name": "blue",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"node_name": "MoveStationary",
+		"node_type": "timed_publish",
+		"anonymous_node": false,
+		"comm_type": "publish",
+		"publish": {
+			"namespace": "blue",
+			"comm_data": "_constant_velocities",
+			"data_topic_name": "cmd_vel_mux/input/navi",
+			"data_class_name": "Twist",
+			"rate": 10,
+			"queue_size": 10,
+			"_constant_velocities": {
+				"linear": [0.0, 0.0, 0.0],
+				"angular": [0.0, 0.0, 0.0]
+			}
+		}
+	},
+
+	"blue_measure": {
+		"init_type": "_simple_init",
+		"node_space": "blue",
+		"agent_name": "blue",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "Measure",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "blue",
+			"comm_data": "_measure",
+			"data_topic_name": "odom",
+			"data_class_name": "Odometry",
+			"callback": "_odometry_callback"
+		}
+	},
+
+	"green_stationary": {
+		"init_type": "_simple_init",
+		"node_space": "green",
+		"agent_name": "green",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"node_name": "MoveStationary",
+		"node_type": "timed_publish",
+		"anonymous_node": false,
+		"comm_type": "publish",
+		"publish": {
+			"namespace": "green",
+			"comm_data": "_constant_velocities",
+			"data_topic_name": "cmd_vel_mux/input/navi",
+			"data_class_name": "Twist",
+			"rate": 10,
+			"queue_size": 10,
+			"_constant_velocities": {
+				"linear": [0.0, 0.0, 0.0],
+				"angular": [0.0, 0.0, 0.0]
+			}
+		}
+	},
+
+	"green_measure": {
+		"init_type": "_simple_init",
+		"node_space": "green",
+		"agent_name": "green",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "Measure",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "green",
+			"comm_data": "_measure",
+			"data_topic_name": "odom",
+			"data_class_name": "Odometry",
+			"callback": "_odometry_callback"
+		}
+	},
+
+	"yellow_complete": {
+		"init_type": "_simple_init",
+		"node_space": "yellow",
+		"agent_name": "yellow",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanComplete",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "yellow",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "complete",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"yellow_closest": {
+		"init_type": "_simple_init",
+		"node_space": "yellow",
+		"agent_name": "yellow",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanClosest",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "yellow",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "closest",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"orange_complete": {
+		"init_type": "_simple_init",
+		"node_space": "orange",
+		"agent_name": "orange",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanComplete",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "orange",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "complete",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"orange_closest": {
+		"init_type": "_simple_init",
+		"node_space": "orange",
+		"agent_name": "orange",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanClosest",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "orange",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "closest",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"red_complete": {
+		"init_type": "_simple_init",
+		"node_space": "red",
+		"agent_name": "red",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanComplete",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "red",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "complete",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"red_closest": {
+		"init_type": "_simple_init",
+		"node_space": "red",
+		"agent_name": "red",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanClosest",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "red",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "closest",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"blue_complete": {
+		"init_type": "_simple_init",
+		"node_space": "blue",
+		"agent_name": "blue",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanComplete",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "blue",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "complete",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"blue_closest": {
+		"init_type": "_simple_init",
+		"node_space": "blue",
+		"agent_name": "blue",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanClosest",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "blue",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "closest",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"green_complete": {
+		"init_type": "_simple_init",
+		"node_space": "green",
+		"agent_name": "green",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanComplete",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "green",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "complete",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"green_closest": {
+		"init_type": "_simple_init",
+		"node_space": "green",
+		"agent_name": "green",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanClosest",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "green",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "closest",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"violet_complete": {
+		"init_type": "_simple_init",
+		"node_space": "violet",
+		"agent_name": "violet",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanComplete",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "violet",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "complete",
+			"callback": "_laser_callback"
+		}
+	},
+
+	"violet_closest": {
+		"init_type": "_simple_init",
+		"node_space": "violet",
+		"agent_name": "violet",
+		"agent_type": "Turtlebot",
+		"time_steps": 100,
+		"rate": 10,
+		"node_name": "ScanClosest",
+		"node_type": "subscribe",
+		"anonymous_node": false,
+		"comm_type": "subscribe",
+		"subscribe": {
+			"namespace": "violet",
+			"comm_data": "_scan",
+			"data_topic_name": "scan",
+			"data_class_name": "LaserScan",
+			"position_type": "closest",
+			"callback": "_laser_callback"
+		}
+	}
+
+}
+
+
+
