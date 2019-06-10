@@ -828,14 +828,14 @@ class Turtlebot(Agent):
 
     def publish(self):
         """Method to publish and/or subscribe to ROS topics"""
-        # pubslish or subscribe
+        # publish or subscribe
         getattr(self, '_publish' + self.agent_data['init_type'])(False)
         pub_rate = rospy.Rate(10)
         pub_rate.sleep()
 
     def subscribe(self):
         """Method to publish and/or subscribe to ROS topics"""
-        # pubslish or subscribe
+        # publish or subscribe
         getattr(self, '_subscribe' + self.agent_data['init_type'])(False)
 
     def shutdown(self):
