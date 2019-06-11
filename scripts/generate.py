@@ -115,50 +115,25 @@ LAUNCH_FOLDER = (os.path.realpath(
             os.path.dirname(inspect.getfile(inspect.currentframe())))[0])))
 LAUNCH_FOLDER = os.path.join(LAUNCH_FOLDER, 'launch', '')
 
+# supplied argument for the folder containing arguments
+ARGS = sys.argv[1]
+
 # arguments for tests and experiments
-TESTS_ARGS = os.path.join(ARG_FOLDER, 'tests', '')
-EXPTS_ARGS = os.path.join(ARG_FOLDER, 'expts', '')
-TRIALS_ARGS = os.path.join(ARG_FOLDER, 'trials', '')
+BOT_ARGS = os.path.join(ARG_FOLDER, ARGS, '')
 
 # final launch configuration folders
-TESTS_LAUNCH = os.path.join(LAUNCH_FOLDER, 'tests', '')
-EXPTS_LAUNCH = os.path.join(LAUNCH_FOLDER, 'expts', '')
-TRIALS_LAUNCH = os.path.join(LAUNCH_FOLDER, 'trials', '')
+BOT_LAUNCH = os.path.join(LAUNCH_FOLDER, ARGS, '')
 
 if __name__ == "__main__":
-    tests_path, tests_dirs, tests_files = next(os.walk(TESTS_ARGS))
-    expts_path, expts_dirs, expts_files = next(os.walk(EXPTS_ARGS))
-    trials_path, trials_dirs, trials_files = next(os.walk(TRIALS_ARGS))
+    arg_path, arg_dirs, arg_files = next(os.walk(BOT_ARGS))
 
     # generate launch files for all tests
-    if tests_files:
-        for json_file in tests_files:
+    if arg_files:
+        for json_file in arg_files:
             file_base_name = os.path.splitext(json_file)[0]
             launch_file = file_base_name + '.launch'
-            tests_nodes = create_jsons(os.path.join(TESTS_ARGS, json_file))
-            tests_launch = create_launch(tests_nodes,
-                                         os.path.join(TESTS_LAUNCH, launch_file))
+            arg_nodes = create_jsons(os.path.join(BOT_ARGS, json_file))
+            arg_launch = create_launch(arg_nodes,
+                                       os.path.join(BOT_LAUNCH, launch_file))
     else:
         print('No argument files found for tests')
-
-    # generate launch files for all experiments
-    if expts_files:
-        for json_file in expts_files:
-            file_base_name = os.path.splitext(json_file)[0]
-            launch_file = file_base_name + '.launch'
-            expts_nodes = create_jsons(os.path.join(EXPTS_ARGS, json_file))
-            expts_launch = create_launch(expts_nodes,
-                                         os.path.join(EXPTS_LAUNCH, launch_file))
-    else:
-        print('No argument files found for experiments')
-
-    # generate launch files for all trials
-    if trials_files:
-        for json_file in trials_files:
-            file_base_name = os.path.splitext(json_file)[0]
-            launch_file = file_base_name + '.launch'
-            trials_nodes = create_jsons(os.path.join(TRIALS_ARGS, json_file))
-            trials_launch = create_launch(trials_nodes,
-                                         os.path.join(TRIALS_LAUNCH, launch_file))
-    else:
-        print('No argument files found for trials')

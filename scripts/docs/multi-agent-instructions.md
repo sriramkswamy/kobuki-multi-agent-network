@@ -76,7 +76,7 @@ _Note_: If you are on a Mac, there are 3 helpful scripts to do these steps in th
 
 ### Coding on the base station
 
-1. Navigate to the `multi_agent` folder. Run the generate script like so: `python generate.py <name_of_the_arg_file_without_extension>`
+1. Navigate to the `multi_agent` folder. Run the generate script like so: `python scripts/generate.py <name_of_the_folder_containing_args>`, e.g., `python scripts/generate.py trials`
 2. This will generate the launch files required. Now remove the previous data using `rm -r scripts/data/*`
 3. Navigate to the `multi_agent/scripts` folder and launch this file via `roslaunch multi_agent <name_of_the_arg_file_without_extension>.launch`.
 
