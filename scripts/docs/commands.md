@@ -34,7 +34,7 @@ Do the following in the base station:
 1. {Base}: `ros_setup`
 2. {Base}: `ros_master_<color>`
 3. {Base}: `roscd multi_agent`
-4. {Base}: `python scripts/generate.py trials`
+4. {Base}: `python scripts/generate.py trials bias_noise_01`
 	- To run this you should be in the `<remote_multi_agent_folder>` folder
 	- You can check that by using `pwd`
 	- If not, change to the folder by running `roscd multi_agent` or `cd ~/catkin_ws/src/multi_agent`

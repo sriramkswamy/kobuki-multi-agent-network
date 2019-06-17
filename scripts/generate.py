@@ -116,24 +116,19 @@ LAUNCH_FOLDER = (os.path.realpath(
 LAUNCH_FOLDER = os.path.join(LAUNCH_FOLDER, 'launch', '')
 
 # supplied argument for the folder containing arguments
-ARGS = sys.argv[1]
+ALL_ARGS = sys.argv[1]
+ARG_FILE = sys.argv[2]
 
 # arguments for tests and experiments
-BOT_ARGS = os.path.join(ARG_FOLDER, ARGS, '')
+BOT_ARGS = os.path.join(ARG_FOLDER, ALL_ARGS, '')
 
 # final launch configuration folders
-BOT_LAUNCH = os.path.join(LAUNCH_FOLDER, ARGS, '')
+BOT_LAUNCH = os.path.join(LAUNCH_FOLDER, ALL_ARGS, '')
 
 if __name__ == "__main__":
-    arg_path, arg_dirs, arg_files = next(os.walk(BOT_ARGS))
-
-    # generate launch files for all tests
-    if arg_files:
-        for json_file in arg_files:
-            file_base_name = os.path.splitext(json_file)[0]
-            launch_file = file_base_name + '.launch'
-            arg_nodes = create_jsons(os.path.join(BOT_ARGS, json_file))
-            arg_launch = create_launch(arg_nodes,
-                                       os.path.join(BOT_LAUNCH, launch_file))
-    else:
-        print('No argument files found for tests')
+    json_file = os.path.join(ALL_ARGS, ARG_FILE)
+    file_base_name = os.path.splitext(json_file)[0]
+    launch_file = file_base_name + '.launch'
+    arg_nodes = create_jsons(os.path.join(BOT_ARGS, json_file))
+    arg_launch = create_launch(arg_nodes,
+                               os.path.join(BOT_LAUNCH, launch_file))

@@ -63,7 +63,7 @@ For practical purposes, the input file `sample.json` can be treated as a big fil
 1. Create the new argument file on the local machine describing the test/experiment
 2. Copy the argument file to the appropriate folder (`multi_agent/scripts/args`) on the base station using `scp`
 3. Copy any other additional file changed to the base station too. If multiple people are working on the same code base, make sure to have a backup copy on the local machine and try not to cause conflicts on the base station.
-4. `ssh` into the base station and navigate to the `multi_agent` folder. Run the generate script like so: `python scripts/generate.py`
+4. `ssh` into the base station and navigate to the `multi_agent` folder. Run the generate script like so: `python scripts/generate.py trials <name_of_file_without_extension>`
 5. This will generate the launch files required. Now remove the previous data using `rm -r scripts/data/*`
 6. Navigate to the `multi_agent/scripts` folder and launch this file via `roslaunch multi_agent <name_of_the_arg_file_without_extension>.launch`. Tip: Have two ssh connections open to the base station, one in the scripts directory, and one in the multi_agent directory to avoid changing directories back and forth. These will remember the history commands in the correct order as well.
 7. Transfer this data to the local machine similar to the step 8 in calibration. Note: Do not include the `calibration/start` folder here. Transfer it directly to the `<local_folder>`
@@ -76,7 +76,7 @@ _Note_: If you are on a Mac, there are 3 helpful scripts to do these steps in th
 
 ### Coding on the base station
 
-1. Navigate to the `multi_agent` folder. Run the generate script like so: `python scripts/generate.py <name_of_the_folder_containing_args>`, e.g., `python scripts/generate.py trials`
+1. Navigate to the `multi_agent` folder. Run the generate script like so: `python scripts/generate.py <name_of_the_folder_containing_args> <name_of_file_without_extension>`, e.g., `python scripts/generate.py trials bias_noise_01`
 2. This will generate the launch files required. Now remove the previous data using `rm -r scripts/data/*`
 3. Navigate to the `multi_agent/scripts` folder and launch this file via `roslaunch multi_agent <name_of_the_arg_file_without_extension>.launch`.
 
