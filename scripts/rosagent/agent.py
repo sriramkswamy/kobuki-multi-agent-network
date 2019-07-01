@@ -186,16 +186,16 @@ class Turtlebot(Agent):
                     self.pub_topic_name[publisher],
                     self.pub_class_obj[publisher],
                     queue_size=self.queue_size[publisher])
-        else:
-            for publisher in publishing_data:
-                self.current_publisher = publisher
-                publisher_data = publishing_data[publisher]
 
                 self.pub_command[publisher] = getattr(
                     self, self.pub_data[publisher])(
                         self.pub_class_call[publisher],
                         publisher_data[self.pub_data[publisher]])
 
+        else:
+            for publisher in publishing_data:
+                self.current_publisher = publisher
+                publisher_data = publishing_data[publisher]
                 self.pub[publisher].publish(self.pub_command[publisher])
 
     def _publish_simple_init(self, initialize):
@@ -215,9 +215,9 @@ class Turtlebot(Agent):
             self.pub = rospy.Publisher(self.pub_topic_name,
                                        self.pub_class_obj,
                                        queue_size=self.queue_size)
-        else:
             self.pub_command = getattr(self, self.pub_data)(
                 self.pub_class_call, publishing_data[self.pub_data])
+        else:
             self.pub.publish(self.pub_command)
 
     def _subscribe_complex_init(self, initialize):
